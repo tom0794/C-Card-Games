@@ -31,6 +31,8 @@ namespace cardsForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Blackjack));
             this.grpPlayerCards = new System.Windows.Forms.GroupBox();
+            this.lblPlayerHandValue = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.playerCard10 = new System.Windows.Forms.PictureBox();
             this.playerCard9 = new System.Windows.Forms.PictureBox();
             this.playerCard8 = new System.Windows.Forms.PictureBox();
@@ -45,12 +47,10 @@ namespace cardsForm
             this.trackBetValue = new System.Windows.Forms.TrackBar();
             this.grpBetting = new System.Windows.Forms.GroupBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblBankroll = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblBetValue = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblPlayerHandValue = new System.Windows.Forms.Label();
             this.grpDealerCards = new System.Windows.Forms.GroupBox();
             this.lblDealerHandValue = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,10 +65,10 @@ namespace cardsForm
             this.dealerCard1 = new System.Windows.Forms.PictureBox();
             this.dealerCard0 = new System.Windows.Forms.PictureBox();
             this.grpActions = new System.Windows.Forms.GroupBox();
-            this.btnHit = new System.Windows.Forms.Button();
-            this.btnStand = new System.Windows.Forms.Button();
-            this.btnSplit = new System.Windows.Forms.Button();
             this.btnDouble = new System.Windows.Forms.Button();
+            this.btnSplit = new System.Windows.Forms.Button();
+            this.btnStand = new System.Windows.Forms.Button();
+            this.btnHit = new System.Windows.Forms.Button();
             this.btnPlayHand2 = new System.Windows.Forms.Button();
             this.grpEventLog = new System.Windows.Forms.GroupBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
@@ -124,6 +124,25 @@ namespace cardsForm
             this.grpPlayerCards.TabStop = false;
             this.grpPlayerCards.Text = "Player Cards";
             // 
+            // lblPlayerHandValue
+            // 
+            this.lblPlayerHandValue.AutoSize = true;
+            this.lblPlayerHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerHandValue.Location = new System.Drawing.Point(78, 265);
+            this.lblPlayerHandValue.Name = "lblPlayerHandValue";
+            this.lblPlayerHandValue.Size = new System.Drawing.Size(26, 29);
+            this.lblPlayerHandValue.TabIndex = 46;
+            this.lblPlayerHandValue.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 273);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 45;
+            this.label4.Text = "Hand Value:";
+            // 
             // playerCard10
             // 
             this.playerCard10.Image = global::cardsForm.Properties.Resources.blue_back;
@@ -133,6 +152,7 @@ namespace cardsForm
             this.playerCard10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard10.TabIndex = 44;
             this.playerCard10.TabStop = false;
+            this.playerCard10.Visible = false;
             // 
             // playerCard9
             // 
@@ -143,6 +163,7 @@ namespace cardsForm
             this.playerCard9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard9.TabIndex = 43;
             this.playerCard9.TabStop = false;
+            this.playerCard9.Visible = false;
             // 
             // playerCard8
             // 
@@ -153,6 +174,7 @@ namespace cardsForm
             this.playerCard8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard8.TabIndex = 42;
             this.playerCard8.TabStop = false;
+            this.playerCard8.Visible = false;
             // 
             // playerCard7
             // 
@@ -163,6 +185,7 @@ namespace cardsForm
             this.playerCard7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard7.TabIndex = 41;
             this.playerCard7.TabStop = false;
+            this.playerCard7.Visible = false;
             // 
             // playerCard6
             // 
@@ -173,6 +196,7 @@ namespace cardsForm
             this.playerCard6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard6.TabIndex = 40;
             this.playerCard6.TabStop = false;
+            this.playerCard6.Visible = false;
             // 
             // playerCard5
             // 
@@ -183,6 +207,7 @@ namespace cardsForm
             this.playerCard5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard5.TabIndex = 39;
             this.playerCard5.TabStop = false;
+            this.playerCard5.Visible = false;
             // 
             // playerCard4
             // 
@@ -193,6 +218,7 @@ namespace cardsForm
             this.playerCard4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard4.TabIndex = 38;
             this.playerCard4.TabStop = false;
+            this.playerCard4.Visible = false;
             // 
             // playerCard3
             // 
@@ -203,6 +229,7 @@ namespace cardsForm
             this.playerCard3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard3.TabIndex = 37;
             this.playerCard3.TabStop = false;
+            this.playerCard3.Visible = false;
             // 
             // playerCard2
             // 
@@ -213,6 +240,7 @@ namespace cardsForm
             this.playerCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard2.TabIndex = 36;
             this.playerCard2.TabStop = false;
+            this.playerCard2.Visible = false;
             // 
             // playerCard1
             // 
@@ -223,6 +251,7 @@ namespace cardsForm
             this.playerCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard1.TabIndex = 35;
             this.playerCard1.TabStop = false;
+            this.playerCard1.Visible = false;
             // 
             // playerCard0
             // 
@@ -233,6 +262,7 @@ namespace cardsForm
             this.playerCard0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.playerCard0.TabIndex = 34;
             this.playerCard0.TabStop = false;
+            this.playerCard0.Visible = false;
             // 
             // trackBetValue
             // 
@@ -251,7 +281,7 @@ namespace cardsForm
             // grpBetting
             // 
             this.grpBetting.Controls.Add(this.btnStart);
-            this.grpBetting.Controls.Add(this.label3);
+            this.grpBetting.Controls.Add(this.lblBankroll);
             this.grpBetting.Controls.Add(this.label2);
             this.grpBetting.Controls.Add(this.label1);
             this.grpBetting.Controls.Add(this.lblBetValue);
@@ -276,16 +306,16 @@ namespace cardsForm
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // label3
+            // lblBankroll
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 24);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "$50000";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBankroll.AutoSize = true;
+            this.lblBankroll.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBankroll.Location = new System.Drawing.Point(10, 45);
+            this.lblBankroll.Name = "lblBankroll";
+            this.lblBankroll.Size = new System.Drawing.Size(76, 24);
+            this.lblBankroll.TabIndex = 5;
+            this.lblBankroll.Text = "$50000";
+            this.lblBankroll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -316,25 +346,6 @@ namespace cardsForm
             this.lblBetValue.Text = "$100";
             this.lblBetValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 273);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 45;
-            this.label4.Text = "Hand Value:";
-            // 
-            // lblPlayerHandValue
-            // 
-            this.lblPlayerHandValue.AutoSize = true;
-            this.lblPlayerHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayerHandValue.Location = new System.Drawing.Point(78, 265);
-            this.lblPlayerHandValue.Name = "lblPlayerHandValue";
-            this.lblPlayerHandValue.Size = new System.Drawing.Size(20, 24);
-            this.lblPlayerHandValue.TabIndex = 46;
-            this.lblPlayerHandValue.Text = "0";
-            // 
             // grpDealerCards
             // 
             this.grpDealerCards.Controls.Add(this.lblDealerHandValue);
@@ -360,10 +371,10 @@ namespace cardsForm
             // lblDealerHandValue
             // 
             this.lblDealerHandValue.AutoSize = true;
-            this.lblDealerHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDealerHandValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDealerHandValue.Location = new System.Drawing.Point(78, 265);
             this.lblDealerHandValue.Name = "lblDealerHandValue";
-            this.lblDealerHandValue.Size = new System.Drawing.Size(20, 24);
+            this.lblDealerHandValue.Size = new System.Drawing.Size(26, 29);
             this.lblDealerHandValue.TabIndex = 46;
             this.lblDealerHandValue.Text = "0";
             // 
@@ -385,6 +396,7 @@ namespace cardsForm
             this.dealerCard9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard9.TabIndex = 43;
             this.dealerCard9.TabStop = false;
+            this.dealerCard9.Visible = false;
             // 
             // dealerCard8
             // 
@@ -395,6 +407,7 @@ namespace cardsForm
             this.dealerCard8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard8.TabIndex = 42;
             this.dealerCard8.TabStop = false;
+            this.dealerCard8.Visible = false;
             // 
             // dealerCard7
             // 
@@ -405,6 +418,7 @@ namespace cardsForm
             this.dealerCard7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard7.TabIndex = 41;
             this.dealerCard7.TabStop = false;
+            this.dealerCard7.Visible = false;
             // 
             // dealerCard6
             // 
@@ -415,6 +429,7 @@ namespace cardsForm
             this.dealerCard6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard6.TabIndex = 40;
             this.dealerCard6.TabStop = false;
+            this.dealerCard6.Visible = false;
             // 
             // dealerCard5
             // 
@@ -425,6 +440,7 @@ namespace cardsForm
             this.dealerCard5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard5.TabIndex = 39;
             this.dealerCard5.TabStop = false;
+            this.dealerCard5.Visible = false;
             // 
             // dealerCard4
             // 
@@ -435,6 +451,7 @@ namespace cardsForm
             this.dealerCard4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard4.TabIndex = 38;
             this.dealerCard4.TabStop = false;
+            this.dealerCard4.Visible = false;
             // 
             // dealerCard3
             // 
@@ -445,6 +462,7 @@ namespace cardsForm
             this.dealerCard3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard3.TabIndex = 37;
             this.dealerCard3.TabStop = false;
+            this.dealerCard3.Visible = false;
             // 
             // dealerCard2
             // 
@@ -455,6 +473,7 @@ namespace cardsForm
             this.dealerCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard2.TabIndex = 36;
             this.dealerCard2.TabStop = false;
+            this.dealerCard2.Visible = false;
             // 
             // dealerCard1
             // 
@@ -465,6 +484,7 @@ namespace cardsForm
             this.dealerCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard1.TabIndex = 35;
             this.dealerCard1.TabStop = false;
+            this.dealerCard1.Visible = false;
             // 
             // dealerCard0
             // 
@@ -475,6 +495,7 @@ namespace cardsForm
             this.dealerCard0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dealerCard0.TabIndex = 34;
             this.dealerCard0.TabStop = false;
+            this.dealerCard0.Visible = false;
             // 
             // grpActions
             // 
@@ -490,31 +511,18 @@ namespace cardsForm
             this.grpActions.TabStop = false;
             this.grpActions.Text = "Actions";
             // 
-            // btnHit
+            // btnDouble
             // 
-            this.btnHit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHit.Enabled = false;
-            this.btnHit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnHit.Location = new System.Drawing.Point(6, 19);
-            this.btnHit.Name = "btnHit";
-            this.btnHit.Size = new System.Drawing.Size(186, 65);
-            this.btnHit.TabIndex = 0;
-            this.btnHit.Text = "Hit";
-            this.btnHit.UseVisualStyleBackColor = true;
-            // 
-            // btnStand
-            // 
-            this.btnStand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStand.Enabled = false;
-            this.btnStand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStand.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnStand.Location = new System.Drawing.Point(6, 90);
-            this.btnStand.Name = "btnStand";
-            this.btnStand.Size = new System.Drawing.Size(186, 65);
-            this.btnStand.TabIndex = 1;
-            this.btnStand.Text = "Stand";
-            this.btnStand.UseVisualStyleBackColor = true;
+            this.btnDouble.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDouble.Enabled = false;
+            this.btnDouble.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDouble.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDouble.Location = new System.Drawing.Point(6, 234);
+            this.btnDouble.Name = "btnDouble";
+            this.btnDouble.Size = new System.Drawing.Size(186, 51);
+            this.btnDouble.TabIndex = 3;
+            this.btnDouble.Text = "Double Down";
+            this.btnDouble.UseVisualStyleBackColor = true;
             // 
             // btnSplit
             // 
@@ -529,18 +537,31 @@ namespace cardsForm
             this.btnSplit.Text = "Split";
             this.btnSplit.UseVisualStyleBackColor = true;
             // 
-            // btnDouble
+            // btnStand
             // 
-            this.btnDouble.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDouble.Enabled = false;
-            this.btnDouble.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDouble.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDouble.Location = new System.Drawing.Point(6, 234);
-            this.btnDouble.Name = "btnDouble";
-            this.btnDouble.Size = new System.Drawing.Size(186, 51);
-            this.btnDouble.TabIndex = 3;
-            this.btnDouble.Text = "Double Down";
-            this.btnDouble.UseVisualStyleBackColor = true;
+            this.btnStand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStand.Enabled = false;
+            this.btnStand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStand.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnStand.Location = new System.Drawing.Point(6, 90);
+            this.btnStand.Name = "btnStand";
+            this.btnStand.Size = new System.Drawing.Size(186, 65);
+            this.btnStand.TabIndex = 1;
+            this.btnStand.Text = "Stand";
+            this.btnStand.UseVisualStyleBackColor = true;
+            // 
+            // btnHit
+            // 
+            this.btnHit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHit.Enabled = false;
+            this.btnHit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnHit.Location = new System.Drawing.Point(6, 19);
+            this.btnHit.Name = "btnHit";
+            this.btnHit.Size = new System.Drawing.Size(186, 65);
+            this.btnHit.TabIndex = 0;
+            this.btnHit.Text = "Hit";
+            this.btnHit.UseVisualStyleBackColor = true;
             // 
             // btnPlayHand2
             // 
@@ -570,6 +591,7 @@ namespace cardsForm
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ReadOnly = true;
+            this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOutput.Size = new System.Drawing.Size(473, 125);
             this.txtOutput.TabIndex = 0;
             this.txtOutput.TabStop = false;
@@ -641,7 +663,7 @@ namespace cardsForm
         private System.Windows.Forms.PictureBox playerCard0;
         private System.Windows.Forms.TrackBar trackBetValue;
         private System.Windows.Forms.GroupBox grpBetting;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblBankroll;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblBetValue;

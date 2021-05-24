@@ -100,13 +100,6 @@ namespace cardProgram
             return deck;
         }
 
-        // Consumes a Stack of Cards. Randomizes the order of the stack and returns the new stack.
-        public static Stack<Card> ShuffleDeck(Stack<Card> oldDeck)
-        {
-            Stack<Card> newDeck = new Stack<Card>();
-
-            return newDeck;
-        }
 
         public override string ToString()
         {

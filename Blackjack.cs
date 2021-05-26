@@ -24,6 +24,7 @@ namespace cardsForm
         private List<Card> listPlayerCards = new List<Card>();
         private List<Card> listDealerCards = new List<Card>();
         public string cardBack = "..\\..\\Resources\\blue_back.png";
+        public string imgFolder = "..\\..\\Resources\\";
 
         public Blackjack()
         {
@@ -61,6 +62,7 @@ namespace cardsForm
 
         private void ResetGameState()
         {
+            UpdateOutput("--------Next Hand---------");
             playerCardCount = 0;
             dealerCardCount = 0;
             listDealerCards.Clear();
@@ -73,9 +75,179 @@ namespace cardsForm
             {
                 p.Visible = false;
             }
+            btnDouble.Enabled = false;
+            btnHit.Enabled = false;
+            btnStand.Enabled = false;
+            btnSplit.Enabled = false;
+            btnStart.Enabled = true;
+            trackBetValue.Enabled = true;
+            lblPlayerHandValue.Text = "0";
+            lblDealerHandValue.Text = "0";
         }
+
+        // PlayerWins executes when the player wins
+        private void PlayerWins()
+        {
+            MessageBox.Show("You have " + lblPlayerHandValue.Text + " and the dealer has " + lblDealerHandValue.Text + ". You win $" + (wager * 2) + "!", "Blackjack");
+            UpdateOutput("You have " + lblPlayerHandValue.Text + " and the dealer has " + lblDealerHandValue.Text + ". You win $" + (wager * 2) + "!");
+            bankroll = bankroll + (wager * 2);
+            lblBankroll.Text = "$" + bankroll;
+            ResetGameState();
+        }
+
+        // CompareHands - Compares the player hand to the dealer hand to determine a winner.
+        private void CompareHands()
+        {
+            int[] playerHandValue = GetHandValue(listPlayerCards, true);
+            int[] dealerHandValue = GetHandValue(listDealerCards, false);
+            if (playerHandValue[0] > 21)
+            {
+                playerHandValue[0] = playerHandValue[1];
+            }
+            if (dealerHandValue[0] > 21)
+            {
+                dealerHandValue[0] = dealerHandValue[1];
+            }
+
+            if (playerHandValue[0] > dealerHandValue[0])
+            {
+                PlayerWins();
+            }
+            else if (playerHandValue[0] < dealerHandValue[0])
+            {
+                MessageBox.Show("You have " + playerHandValue[0].ToString() + " and the dealer has " + dealerHandValue[0].ToString() + ". You lose!", "Blackjack");
+                UpdateOutput("You have " + playerHandValue[0].ToString() + " and the dealer had " + dealerHandValue[0].ToString() + ". You lose!");
+                ResetGameState();
+            }
+            else if (playerHandValue[0] == dealerHandValue[0])
+            {
+                MessageBox.Show("You have " + playerHandValue[0].ToString() + " and the dealer has " + dealerHandValue[0].ToString() + ". It is a push!", "Blackjack");
+                bankroll = bankroll + wager;
+                lblBankroll.Text = "$" + bankroll;
+                ResetGameState();
+            }
+        }
+
+        // DealerHandPlay - the dealer plays out their hand
+        private void DealerHandPlay()
+        {
+            int[] dealerHandValue = GetHandValue(listDealerCards, false);
+            picDealerCards[1].Image = Image.FromFile(imgFolder + listDealerCards.ElementAt(1).GetPath());
+            picDealerCards[1].BringToFront();
+            DisplayHandValue(dealerHandValue, false);
+            MessageBox.Show("Dealer's facedown card is the " + listDealerCards.ElementAt(1) + ". Hand value is " + dealerHandValue[0] + ".", "Blackjack");
+            
+            bool dealerStand = false;
+            bool dealerBust = false;
+
+            if (dealerHandValue[0] >= 17)
+            {
+                dealerStand = true;
+                UpdateOutput("Dealer stands with " + dealerHandValue[0]);
+                CompareHands();
+            }
+
+
+            // Loop: dealer hits until they have at least 17, or have busted
+            while (!dealerStand && !dealerBust)
+            {
+                AddCardToHand(listDealerCards.Count, picDealerCards, false, listDealerCards);
+                UpdateOutput("Card dealt: " + listDealerCards.ElementAt(listDealerCards.Count - 1));
+                dealerHandValue = GetHandValue(listDealerCards, false);
+                DisplayHandValue(dealerHandValue, false);
+                MessageBox.Show("Dealer is dealt a " + listDealerCards.ElementAt(listDealerCards.Count - 1) + ". Hand value is now " + lblDealerHandValue.Text + ".", "Blackjack");
+
+                CheckForBust(dealerHandValue, false);
+                if (dealerHandValue[0] > 21 && dealerHandValue[1] > 21)
+                {
+                    dealerBust = true;
+                }
+                else if (dealerHandValue[0] >= 17 && dealerHandValue[0] <= 21)
+                {
+                    dealerStand = true;
+                    MessageBox.Show("Dealer stands with " + lblDealerHandValue.Text + ".", "Blackjack");
+                    UpdateOutput("Dealer stands with " + lblDealerHandValue.Text + ".");
+                    CompareHands();
+                }
+                else if (dealerHandValue[1] >= 17 && dealerHandValue[1] <= 21)
+                {
+                    dealerStand = true;
+                    MessageBox.Show("Dealer stands with " + lblDealerHandValue.Text + ".", "Blackjack");
+                    UpdateOutput("Dealer stands with " + lblDealerHandValue.Text + ".");
+                    CompareHands();
+                }
+            }
+            
+        }
+
+        // CheckForBust identifies if a hand has busted.
+        private void CheckForBust(int[] inHandValue, bool playerHand)
+        {
+            if (inHandValue[0] > 21 && inHandValue[1] > 21)
+            {
+                if (playerHand)
+                {
+                    UpdateOutput("You have busted.");
+                    MessageBox.Show("You have busted.", "Blackjack");
+                }
+                else if (!playerHand)
+                {
+                    UpdateOutput("Dealer busts!");
+                    MessageBox.Show("Dealer busts!", "Blackjack");
+                    PlayerWins();
+                }
+                ResetGameState();
+            }
+            else if (inHandValue[0] > 21)
+            {
+                if (playerHand)
+                {
+                    lblPlayerHandValue.Text = inHandValue[1].ToString();
+                }
+                else
+                {
+                    lblDealerHandValue.Text = inHandValue[1].ToString();
+                }
+            }
+        }
+
+        // Display hand value updates the labels displaying the hand value
+        private void DisplayHandValue(int[] inHandValue, bool playerHand)
+        {
+            if (playerHand && inHandValue[0] != inHandValue[1] && inHandValue[0] < 21)
+            {
+                lblPlayerHandValue.Text = inHandValue[0] + " / " + inHandValue[1];
+                UpdateOutput("Player hand value is now: " + lblPlayerHandValue.Text);
+            }
+            else if (playerHand && inHandValue[0] > 21)
+            {
+                lblPlayerHandValue.Text = inHandValue[1].ToString();
+                UpdateOutput("Player hand value is now: " + lblPlayerHandValue.Text);
+            }
+            else if (playerHand)
+            {
+                lblPlayerHandValue.Text = inHandValue[0].ToString();
+                UpdateOutput("Player hand value is now: " + lblPlayerHandValue.Text);
+            }
+            else if (!playerHand && inHandValue[0] != inHandValue[1] && inHandValue[0] != 21)
+            {
+                lblDealerHandValue.Text = inHandValue[0] + " / " + inHandValue[1];
+                UpdateOutput("Dealer hand value is now: " + lblDealerHandValue.Text);
+            }
+            else if (!playerHand && inHandValue[0] > 21)
+            {
+                lblDealerHandValue.Text = inHandValue[1].ToString();
+                UpdateOutput("Player hand value is now: " + lblDealerHandValue.Text);
+            }
+            else if (!playerHand)
+            {
+                lblDealerHandValue.Text = inHandValue[0].ToString();
+                UpdateOutput("Dealer hand value is now: " + lblDealerHandValue.Text);
+            }
+        }
+
         // GetHandValue consumes a hand and produces the value of the hand.
-        private void GetHandValue(List<Card> inHand, bool playerHand)
+        private int[] GetHandValue(List<Card> inHand, bool playerHand)
         {
             int[] calculatedValue = new int[2];
             bool aceFound = false;
@@ -103,25 +275,20 @@ namespace cardsForm
                     calculatedValue[1] += inHand[i].GetStrength();
                 }
             }
-            // call the next event here. put this in the next event 
-            if (playerHand && calculatedValue[0] != calculatedValue[1] && calculatedValue[0] != 21)
-            {
-                lblPlayerHandValue.Text = calculatedValue[0] + " / " + calculatedValue[1];
-            }
-            else if (playerHand)
-            {
-                lblPlayerHandValue.Text = calculatedValue[0].ToString();
-            }
-            UpdateOutput("Hand value: " + calculatedValue[0] + " " + calculatedValue[1]);
+
+            return calculatedValue;
         }
 
         // AddCardToHand consumes card count and a hand. Deals one card to the specified hand (facedown if indicated)
-        private void AddCardToHand(int cardsInHand, PictureBox[] picToAddTo, bool facedown, List<Card> handToAddTo, bool playerHand)
+        private void AddCardToHand(int cardsInHand, PictureBox[] picToAddTo, bool facedown, List<Card> handToAddTo)
         {
-            string imgFolder = "..\\..\\Resources\\";
             Card newCard = new Card();
             newCard = Program.deckOfCards.Pop();
             handToAddTo.Add(newCard);
+            if (cardsInHand >= 11)
+            {
+                cardsInHand = 10;
+            }
             picToAddTo[cardsInHand].Visible = true;
             if (facedown)
             {
@@ -130,6 +297,7 @@ namespace cardsForm
             else
             {
                 picToAddTo[cardsInHand].Image = Image.FromFile(imgFolder + newCard.GetPath());
+                picToAddTo[cardsInHand].BringToFront();
             }
             //GetHandValue(handToAddTo, playerHand);
         }
@@ -181,16 +349,72 @@ namespace cardsForm
             {
                 DealNewDeck();
             }
-            AddCardToHand(playerCardCount, picPlayerCards, false, listPlayerCards, true);
+            AddCardToHand(playerCardCount, picPlayerCards, false, listPlayerCards);
             playerCardCount++;
-            AddCardToHand(playerCardCount, picPlayerCards, false, listPlayerCards, true);
+            AddCardToHand(playerCardCount, picPlayerCards, false, listPlayerCards);
             playerCardCount++;
-            GetHandValue(listPlayerCards, true);
-            AddCardToHand(dealerCardCount, picDealerCards, true, listDealerCards, false);
+            DisplayHandValue(GetHandValue(listPlayerCards, true), true);
+
+            AddCardToHand(dealerCardCount, picDealerCards, false, listDealerCards);
             dealerCardCount++;
-            AddCardToHand(dealerCardCount, picDealerCards, false, listDealerCards, false);
+            DisplayHandValue(GetHandValue(listDealerCards, false), false);
+            AddCardToHand(dealerCardCount, picDealerCards, true, listDealerCards);
             dealerCardCount++;
-            GetHandValue(listDealerCards, false);
+
+            // Enable actions, disable wager.
+            btnStart.Enabled = false;
+            trackBetValue.Enabled = false;
+
+            btnHit.Enabled = true;
+            btnStand.Enabled = true;
+            btnDouble.Enabled = true;
+
+            // if the player has a pair, split is enabled.
+            if (listPlayerCards.ElementAt(0).GetName() == listPlayerCards.ElementAt(1).GetName())
+            {
+                btnSplit.Enabled = true;
+            }
+
+            if (GetHandValue(listPlayerCards, true)[0] == 21)
+            {
+                MessageBox.Show("Blackjack!", "Blackjack");
+                btnStand_Click(sender, e);
+            }
+        }
+
+        private void btnHit_Click(object sender, EventArgs e)
+        {
+            AddCardToHand(listPlayerCards.Count, picPlayerCards, false, listPlayerCards);
+            UpdateOutput("Card dealt: " + listPlayerCards.ElementAt(listPlayerCards.Count - 1));
+            int[] handValue = GetHandValue(listPlayerCards, true);
+            DisplayHandValue(handValue, true);
+            if (handValue[0] == 21 || handValue[1] == 21)
+            {
+                MessageBox.Show("Blackjack!", "Blackjack");
+                btnStand_Click(sender, e);
+            } 
+            else
+            {
+                CheckForBust(handValue, true);
+            }
+        }
+
+        private void btnStand_Click(object sender, EventArgs e)
+        {
+            foreach (Button b in grpActions.Controls)
+            {
+                b.Enabled = false;
+            }
+            int[] playerHand = GetHandValue(listPlayerCards, true);
+            if (playerHand[0] >= playerHand[1])
+            {
+                lblPlayerHandValue.Text = playerHand[0].ToString();
+            }
+            else
+            {
+                lblPlayerHandValue.Text = playerHand[1].ToString();
+            }
+            DealerHandPlay();
         }
     }
 }

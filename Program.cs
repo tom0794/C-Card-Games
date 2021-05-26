@@ -17,8 +17,8 @@ namespace cardsForm
         { 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainMenu());
-            Application.Run(new Blackjack());
+            Application.Run(new MainMenu());
+            //Application.Run(new Blackjack());
         }
 
         //Consumes an unsorted list of int and returns a sorted list of int (largest to smallest)

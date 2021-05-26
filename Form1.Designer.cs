@@ -78,6 +78,7 @@ namespace cardsForm
             // 
             // buttonShowCard
             // 
+            this.buttonShowCard.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonShowCard.Location = new System.Drawing.Point(15, 25);
             this.buttonShowCard.Name = "buttonShowCard";
             this.buttonShowCard.Size = new System.Drawing.Size(138, 47);
@@ -97,6 +98,7 @@ namespace cardsForm
             // 
             // buttonDealHand
             // 
+            this.buttonDealHand.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDealHand.Location = new System.Drawing.Point(221, 25);
             this.buttonDealHand.Name = "buttonDealHand";
             this.buttonDealHand.Size = new System.Drawing.Size(138, 47);
@@ -168,6 +170,7 @@ namespace cardsForm
             // buttonSortHand
             // 
             this.buttonSortHand.Enabled = false;
+            this.buttonSortHand.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSortHand.Location = new System.Drawing.Point(365, 25);
             this.buttonSortHand.Name = "buttonSortHand";
             this.buttonSortHand.Size = new System.Drawing.Size(138, 47);
@@ -178,6 +181,7 @@ namespace cardsForm
             // 
             // buttonReset
             // 
+            this.buttonReset.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonReset.Location = new System.Drawing.Point(529, 25);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(138, 47);
@@ -198,6 +202,7 @@ namespace cardsForm
             // labelSFlush
             // 
             this.labelSFlush.AutoSize = true;
+            this.labelSFlush.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelSFlush.Location = new System.Drawing.Point(530, 119);
             this.labelSFlush.Name = "labelSFlush";
             this.labelSFlush.Size = new System.Drawing.Size(74, 13);
@@ -227,6 +232,7 @@ namespace cardsForm
             // labelQuads
             // 
             this.labelQuads.AutoSize = true;
+            this.labelQuads.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelQuads.Location = new System.Drawing.Point(530, 143);
             this.labelQuads.Name = "labelQuads";
             this.labelQuads.Size = new System.Drawing.Size(41, 13);
@@ -246,6 +252,7 @@ namespace cardsForm
             // labelFullH
             // 
             this.labelFullH.AutoSize = true;
+            this.labelFullH.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelFullH.Location = new System.Drawing.Point(530, 167);
             this.labelFullH.Name = "labelFullH";
             this.labelFullH.Size = new System.Drawing.Size(60, 13);
@@ -265,6 +272,7 @@ namespace cardsForm
             // labelFlush
             // 
             this.labelFlush.AutoSize = true;
+            this.labelFlush.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelFlush.Location = new System.Drawing.Point(530, 192);
             this.labelFlush.Name = "labelFlush";
             this.labelFlush.Size = new System.Drawing.Size(35, 13);
@@ -284,6 +292,7 @@ namespace cardsForm
             // labelStraight
             // 
             this.labelStraight.AutoSize = true;
+            this.labelStraight.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelStraight.Location = new System.Drawing.Point(530, 216);
             this.labelStraight.Name = "labelStraight";
             this.labelStraight.Size = new System.Drawing.Size(46, 13);
@@ -303,6 +312,7 @@ namespace cardsForm
             // labelTrips
             // 
             this.labelTrips.AutoSize = true;
+            this.labelTrips.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelTrips.Location = new System.Drawing.Point(651, 119);
             this.labelTrips.Name = "labelTrips";
             this.labelTrips.Size = new System.Drawing.Size(33, 13);
@@ -322,6 +332,7 @@ namespace cardsForm
             // label2Pair
             // 
             this.label2Pair.AutoSize = true;
+            this.label2Pair.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2Pair.Location = new System.Drawing.Point(651, 143);
             this.label2Pair.Name = "label2Pair";
             this.label2Pair.Size = new System.Drawing.Size(52, 13);
@@ -341,6 +352,7 @@ namespace cardsForm
             // label1Pair
             // 
             this.label1Pair.AutoSize = true;
+            this.label1Pair.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1Pair.Location = new System.Drawing.Point(651, 167);
             this.label1Pair.Name = "label1Pair";
             this.label1Pair.Size = new System.Drawing.Size(51, 13);
@@ -360,6 +372,7 @@ namespace cardsForm
             // labelHighCard
             // 
             this.labelHighCard.AutoSize = true;
+            this.labelHighCard.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelHighCard.Location = new System.Drawing.Point(651, 192);
             this.labelHighCard.Name = "labelHighCard";
             this.labelHighCard.Size = new System.Drawing.Size(57, 13);
@@ -379,6 +392,7 @@ namespace cardsForm
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
+            this.labelTotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelTotal.Location = new System.Drawing.Point(651, 216);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(68, 13);
@@ -448,6 +462,7 @@ namespace cardsForm
             // buttonDrawNew
             // 
             this.buttonDrawNew.Enabled = false;
+            this.buttonDrawNew.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDrawNew.Location = new System.Drawing.Point(402, 294);
             this.buttonDrawNew.Name = "buttonDrawNew";
             this.buttonDrawNew.Size = new System.Drawing.Size(100, 31);
@@ -470,6 +485,7 @@ namespace cardsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(125)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonDrawNew);
@@ -510,6 +526,7 @@ namespace cardsForm
             this.Controls.Add(this.buttonShowCard);
             this.Controls.Add(this.cardImage1);
             this.Controls.Add(this.dealtCard1);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);

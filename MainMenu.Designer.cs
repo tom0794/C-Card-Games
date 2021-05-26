@@ -29,8 +29,10 @@ namespace cardsForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.btn5Poker = new System.Windows.Forms.Button();
             this.btnTexas = new System.Windows.Forms.Button();
+            this.btnBlackjack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn5Poker
@@ -53,13 +55,26 @@ namespace cardsForm
             this.btnTexas.UseVisualStyleBackColor = true;
             this.btnTexas.Click += new System.EventHandler(this.btnTexas_Click);
             // 
+            // btnBlackjack
+            // 
+            this.btnBlackjack.Location = new System.Drawing.Point(22, 118);
+            this.btnBlackjack.Name = "btnBlackjack";
+            this.btnBlackjack.Size = new System.Drawing.Size(145, 37);
+            this.btnBlackjack.TabIndex = 2;
+            this.btnBlackjack.Text = "Blackjack";
+            this.btnBlackjack.UseVisualStyleBackColor = true;
+            this.btnBlackjack.Click += new System.EventHandler(this.btnBlackjack_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(125)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBlackjack);
             this.Controls.Add(this.btnTexas);
             this.Controls.Add(this.btn5Poker);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.ResumeLayout(false);
@@ -70,5 +85,6 @@ namespace cardsForm
 
         private System.Windows.Forms.Button btn5Poker;
         private System.Windows.Forms.Button btnTexas;
+        private System.Windows.Forms.Button btnBlackjack;
     }
 }

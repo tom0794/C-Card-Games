@@ -549,6 +549,7 @@ namespace cardsForm
             this.btnStand.TabIndex = 1;
             this.btnStand.Text = "Stand";
             this.btnStand.UseVisualStyleBackColor = true;
+            this.btnStand.Click += new System.EventHandler(this.btnStand_Click);
             // 
             // btnHit
             // 
@@ -562,6 +563,7 @@ namespace cardsForm
             this.btnHit.TabIndex = 0;
             this.btnHit.Text = "Hit";
             this.btnHit.UseVisualStyleBackColor = true;
+            this.btnHit.Click += new System.EventHandler(this.btnHit_Click);
             // 
             // btnPlayHand2
             // 

@@ -30,5 +30,12 @@ namespace cardsForm
             TexasHoldem txForm = new TexasHoldem();
             txForm.Show();
         }
+
+        private void btnBlackjack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Blackjack bForm = new Blackjack();
+            bForm.Show();
+        }
     }
 }

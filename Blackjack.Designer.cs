@@ -72,6 +72,15 @@ namespace cardsForm
             this.btnPlayHand2 = new System.Windows.Forms.Button();
             this.grpEventLog = new System.Windows.Forms.GroupBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblHandsPlayed = new System.Windows.Forms.Label();
+            this.lblWins = new System.Windows.Forms.Label();
+            this.lblLosses = new System.Windows.Forms.Label();
+            this.lblRate = new System.Windows.Forms.Label();
             this.grpPlayerCards.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard9)).BeginInit();
@@ -99,6 +108,7 @@ namespace cardsForm
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard0)).BeginInit();
             this.grpActions.SuspendLayout();
             this.grpEventLog.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpPlayerCards
@@ -598,12 +608,102 @@ namespace cardsForm
             this.txtOutput.TabIndex = 0;
             this.txtOutput.TabStop = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblRate);
+            this.groupBox1.Controls.Add(this.lblLosses);
+            this.groupBox1.Controls.Add(this.lblWins);
+            this.groupBox1.Controls.Add(this.lblHandsPlayed);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Location = new System.Drawing.Point(15, 477);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(269, 113);
+            this.groupBox1.TabIndex = 51;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Stats";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Hands played:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Hands won:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Hands lost:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(28, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Win rate:";
+            // 
+            // lblHandsPlayed
+            // 
+            this.lblHandsPlayed.AutoSize = true;
+            this.lblHandsPlayed.Location = new System.Drawing.Point(77, 16);
+            this.lblHandsPlayed.Name = "lblHandsPlayed";
+            this.lblHandsPlayed.Size = new System.Drawing.Size(13, 13);
+            this.lblHandsPlayed.TabIndex = 4;
+            this.lblHandsPlayed.Text = "0";
+            // 
+            // lblWins
+            // 
+            this.lblWins.AutoSize = true;
+            this.lblWins.Location = new System.Drawing.Point(77, 32);
+            this.lblWins.Name = "lblWins";
+            this.lblWins.Size = new System.Drawing.Size(13, 13);
+            this.lblWins.TabIndex = 5;
+            this.lblWins.Text = "0";
+            // 
+            // lblLosses
+            // 
+            this.lblLosses.AutoSize = true;
+            this.lblLosses.Location = new System.Drawing.Point(77, 48);
+            this.lblLosses.Name = "lblLosses";
+            this.lblLosses.Size = new System.Drawing.Size(13, 13);
+            this.lblLosses.TabIndex = 6;
+            this.lblLosses.Text = "0";
+            // 
+            // lblRate
+            // 
+            this.lblRate.AutoSize = true;
+            this.lblRate.Location = new System.Drawing.Point(77, 65);
+            this.lblRate.Name = "lblRate";
+            this.lblRate.Size = new System.Drawing.Size(0, 13);
+            this.lblRate.TabIndex = 7;
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(125)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(800, 610);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpEventLog);
             this.Controls.Add(this.btnPlayHand2);
             this.Controls.Add(this.grpActions);
@@ -645,6 +745,8 @@ namespace cardsForm
             this.grpActions.ResumeLayout(false);
             this.grpEventLog.ResumeLayout(false);
             this.grpEventLog.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -693,5 +795,14 @@ namespace cardsForm
         private System.Windows.Forms.Button btnPlayHand2;
         private System.Windows.Forms.GroupBox grpEventLog;
         private System.Windows.Forms.TextBox txtOutput;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblRate;
+        private System.Windows.Forms.Label lblLosses;
+        private System.Windows.Forms.Label lblWins;
+        private System.Windows.Forms.Label lblHandsPlayed;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
     }
 }

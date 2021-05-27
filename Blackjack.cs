@@ -62,7 +62,6 @@ namespace cardsForm
 
         private void ResetGameState()
         {
-            UpdateOutput("--------Next Hand---------");
             playerCardCount = 0;
             dealerCardCount = 0;
             listDealerCards.Clear();
@@ -85,6 +84,30 @@ namespace cardsForm
             lblDealerHandValue.Text = "0";
         }
 
+        private void UpdateStats(int win)
+        {
+            int totalHands = int.Parse(lblHandsPlayed.Text);
+            totalHands++;
+            lblHandsPlayed.Text = totalHands.ToString();
+
+            if (win == 1)
+            {
+                int totalWins = int.Parse(lblWins.Text);
+                totalWins++;
+                lblWins.Text = totalWins.ToString();
+            }
+            else if (win == 0)
+            {
+                int totalLosses = int.Parse(lblLosses.Text);
+                totalLosses++;
+                lblLosses.Text = totalLosses.ToString();
+            }
+
+            decimal winrate = decimal.Parse(lblWins.Text) / decimal.Parse(lblHandsPlayed.Text);
+            winrate = decimal.Round(winrate * 100, 2);
+            lblRate.Text = winrate.ToString() + "%";
+        }
+
         // PlayerWins executes when the player wins
         private void PlayerWins()
         {
@@ -92,6 +115,7 @@ namespace cardsForm
             UpdateOutput("You have " + lblPlayerHandValue.Text + " and the dealer has " + lblDealerHandValue.Text + ". You win $" + (wager * 2) + "!");
             bankroll = bankroll + (wager * 2);
             lblBankroll.Text = "$" + bankroll;
+            UpdateStats(1);
             ResetGameState();
         }
 
@@ -117,6 +141,7 @@ namespace cardsForm
             {
                 MessageBox.Show("You have " + playerHandValue[0].ToString() + " and the dealer has " + dealerHandValue[0].ToString() + ". You lose!", "Blackjack");
                 UpdateOutput("You have " + playerHandValue[0].ToString() + " and the dealer had " + dealerHandValue[0].ToString() + ". You lose!");
+                UpdateStats(0);
                 ResetGameState();
             }
             else if (playerHandValue[0] == dealerHandValue[0])
@@ -124,6 +149,7 @@ namespace cardsForm
                 MessageBox.Show("You have " + playerHandValue[0].ToString() + " and the dealer has " + dealerHandValue[0].ToString() + ". It is a push!", "Blackjack");
                 bankroll = bankroll + wager;
                 lblBankroll.Text = "$" + bankroll;
+                UpdateStats(-1);
                 ResetGameState();
             }
         }
@@ -191,6 +217,7 @@ namespace cardsForm
                 {
                     UpdateOutput("You have busted.");
                     MessageBox.Show("You have busted.", "Blackjack");
+                    UpdateStats(0);
                 }
                 else if (!playerHand)
                 {
@@ -346,6 +373,7 @@ namespace cardsForm
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            UpdateOutput("--------Next Hand---------");
             ResetGameState();
             bankroll = bankroll - wager;
             lblBankroll.Text = "$" + bankroll.ToString();

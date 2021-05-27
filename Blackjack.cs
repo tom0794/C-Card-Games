@@ -165,6 +165,7 @@ namespace cardsForm
                 else if (dealerHandValue[0] >= 17 && dealerHandValue[0] <= 21)
                 {
                     dealerStand = true;
+                    lblDealerHandValue.Text = dealerHandValue[0].ToString();
                     MessageBox.Show("Dealer stands with " + lblDealerHandValue.Text + ".", "Blackjack");
                     UpdateOutput("Dealer stands with " + lblDealerHandValue.Text + ".");
                     CompareHands();
@@ -172,6 +173,7 @@ namespace cardsForm
                 else if (dealerHandValue[1] >= 17 && dealerHandValue[1] <= 21)
                 {
                     dealerStand = true;
+                    lblDealerHandValue.Text = dealerHandValue[1].ToString();
                     MessageBox.Show("Dealer stands with " + lblDealerHandValue.Text + ".", "Blackjack");
                     UpdateOutput("Dealer stands with " + lblDealerHandValue.Text + ".");
                     CompareHands();
@@ -237,7 +239,7 @@ namespace cardsForm
             else if (!playerHand && inHandValue[0] > 21)
             {
                 lblDealerHandValue.Text = inHandValue[1].ToString();
-                UpdateOutput("Player hand value is now: " + lblDealerHandValue.Text);
+                UpdateOutput("Dealer hand value is now: " + lblDealerHandValue.Text);
             }
             else if (!playerHand)
             {
@@ -275,7 +277,10 @@ namespace cardsForm
                     calculatedValue[1] += inHand[i].GetStrength();
                 }
             }
-
+            if (calculatedValue[0] > 21)
+            {
+                calculatedValue[0] = calculatedValue[1];
+            }
             return calculatedValue;
         }
 
